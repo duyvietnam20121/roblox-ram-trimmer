@@ -1,0 +1,30 @@
+# Roblox RAM Trimmer - file cấu hình mẫu.
+# Đổi tên thành "roblox-ram-trimmer.ini" và đặt CẠNH file .exe, rồi chạy lại app.
+# Dòng bắt đầu bằng # hoặc ; là chú thích. Giá trị sai sẽ bị bỏ qua (dùng mặc định)
+# và cảnh báo được ghi vào %LOCALAPPDATA%\roblox-ram-trimmer.log
+
+# Ngưỡng % RAM hệ thống để bắt đầu trim (1-99)
+ram_threshold_percent = 85
+
+# Tổng dung lượng trim mỗi đợt, tính bằng MB (1-8192)
+trim_total_mb = 512
+
+# Mỗi bước trim bao nhiêu MB (1-1024). Nhỏ hơn = êm hơn nhưng lâu hơn.
+trim_step_mb = 32
+
+# Nghỉ giữa hai bước trim, tính bằng mili-giây (100-60000)
+trim_step_interval_ms = 1500
+
+# Kiểm tra RAM mỗi bao nhiêu giây (1-300)
+ram_check_interval_secs = 3
+
+# Sau mỗi đợt trim, nghỉ bao nhiêu giây trước khi cho trim lại (0-3600)
+cooldown_secs = 60
+
+# Không bao giờ trim working set của Roblox xuống dưới mức này, MB (0-4096)
+min_working_set_floor_mb = 128
+
+# Gọi thêm EmptyWorkingSet sau khi trim (true/false). MẶC ĐỊNH false.
+# Cảnh báo: API này đẩy gần như TOÀN BỘ working set ra khỏi RAM, bỏ qua mục
+# tiêu 512MB và sàn an toàn ở trên -> Roblox phải nạp lại nhiều trang, dễ giật lag.
+empty_working_set_after_trim = false
